@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spooky Tesco Trip Story Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c2c34;
+            color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 30px;
+            border: 3px solid #333;
+            border-radius: 10px;
+            background-color: #333;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        #story {
+            font-size: 1.2em;
+            line-height: 1.6em;
+            margin-top: 20px;
+        }
+        .story-button {
+            font-size: 1em;
+            padding: 5px 10px;
+            margin: 0 5px;
+            background-color: #4a4a5a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .story-button:hover {
+            background-color: #666677;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="story-container">
+        <h1>Spooky Tesco Trip</h1>
+        <p id="story">
+            On a chilly Halloween night, Conor, Owen, and Arron decided to visit Tesco for snacks. As they approached, they noticed the shop was <button class="story-button" onclick="generateWord(this, 'adjective')">[adjective]</button> and covered in eerie decorations. 
+
+            "Do you think Tesco is haunted?" asked Conor, <button class="story-button" onclick="generateWord(this, 'verb-ing')">[verb-ing]</button> nervously. They stepped inside, where a cold breeze seemed to <button class="story-button" onclick="generateWord(this, 'verb')">[verb]</button> through the aisles. Suddenly, they spotted a floating <button class="story-button" onclick="generateWord(this, 'noun')">[noun]</button> in the drinks aisle! "Must be the ghost of a thirsty shopper," Owen joked, though he was clearly <button class="story-button" onclick="generateWord(this, 'adjective')">[adjective]</button>.
+
+            When they got to the food aisle, the shelves were stocked with all sorts of <button class="story-button" onclick="generateWord(this, 'adjective')">[adjective]</button> treats. "What should we have for lunch?" Arron pondered, <button class="story-button" onclick="generateWord(this, 'verb-ing')">[verb-ing]</button> as he examined a pack of <button class="story-button" onclick="generateWord(this, 'noun')">[noun]</button>s that seemed to glow. 
+
+            The drinks were next, but every bottle looked a bit... strange. "Should we try the <button class="story-button" onclick="generateWord(this, 'noun')">[noun]</button>-flavoured soda or the one that’s <button class="story-button" onclick="generateWord(this, 'adjective')">[adjective]</button>?" Owen wondered aloud, grimacing.
+
+            Finally, they reached the sweets section, and it was the hardest decision of all. "There are too many options!" Conor said, <button class="story-button" onclick="generateWord(this, 'verb-ing')">[verb-ing]</button> as he picked up a bag of <button class="story-button" onclick="generateWord(this, 'noun')">[noun]</button>-shaped gummies that were practically glowing. 
+
+            Before leaving, they passed a display of hats and dared each other to try one on. Conor picked up a <button class="story-button" onclick="generateWord(this, 'adjective')">[adjective]</button> hat, placed it on his head, and immediately felt like a <button class="story-button" onclick="generateWord(this, 'noun')">[noun]</button>. The others burst out laughing and tried on hats too, feeling both <button class="story-button" onclick="generateWord(this, 'adjective')">[adjective]</button> and completely ridiculous.
+
+            With their bags full of strange snacks and a story to tell, they left the haunted Tesco, each secretly wondering if they'd dare to come back next Halloween.
+        </p>
+    </div>
+
+    <script>
+        // Spooky and silly word sets for story content
+        const storyAdjectives = [
+            "creepy", "ghoulish", "phantom-like", "spooky", "haunted", "sinister", 
+            "bewitched", "ghostly", "slimy", "eerie", "mysterious", "shadowy"
+        ];
+
+        const storyNouns = [
+            "pumpkin", "zombie", "bat", "ghost", "witch", "cauldron", 
+            "skull", "monster", "broomstick", "mummy", "fang", "cobweb"
+        ];
+
+        const storyVerbs = [
+            "howl", "screech", "float", "rattle", "moan", "creak", 
+            "whisper", "hover", "shriek", "shiver", "scamper", "vanish"
+        ];
+
+        function generateWord(button, type) {
+            let word = "";
+            if (type === "adjective") {
+                word = storyAdjectives[Math.floor(Math.random() * storyAdjectives.length)];
+            } else if (type === "noun") {
+                word = storyNouns[Math.floor(Math.random() * storyNouns.length)];
+            } else if (type === "verb") {
+                word = storyVerbs[Math.floor(Math.random() * storyVerbs.length)];
+            } else if (type === "verb-ing") {
+                const verb = storyVerbs[Math.floor(Math.random() * storyVerbs.length)];
+                word = verb + (verb.endsWith("e") ? "ing" : "ing");
+            }
+
+            button.textContent = word;
+        }
+    </script>
+
+</body>
+</html>
